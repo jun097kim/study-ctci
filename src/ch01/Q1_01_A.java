@@ -14,14 +14,10 @@ public class Q1_01_A {
     }
 
     private static boolean isUnique(String s1) {
-        return isUnique(s1.toCharArray());
-    }
-
-    private static boolean isUnique(char[] s1) {
         Set<Character> charSet = new HashSet<>();
 
-        for (char c : s1) {
-            if (!charSet.add(c)) {
+        for (int i = 0; i < s1.length(); i++) {
+            if (!charSet.add(s1.charAt(i))) {
                 return false;
             }
         }

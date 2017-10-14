@@ -15,29 +15,25 @@ public class Q1_09_A {
     }
 
     private static boolean isRotation(String s1, String s2) {
-        return isRotation(s1.toCharArray(), s2.toCharArray());
-    }
-
-    private static boolean isRotation(char[] s1, char[] s2) {
-        if (s1.length != s2.length) {
+        if (s1.length() != s2.length()) {
             return false;
         }
 
         Queue<Character> charQueue = new LinkedList<>();
-        for (char c : s1) {
-            charQueue.offer(c);
+        for (int i = 0; i < s1.length(); i++) {
+            charQueue.offer(s1.charAt(i));
         }
 
         Character peekedChar = charQueue.peek();
         boolean firstMatch = false;
         int matchedI = 0;
 
-        for (int i = 0; i < s2.length; i++) {
+        for (int i = 0; i < s2.length(); i++) {
             if (firstMatch) {
-                if (charQueue.poll() != s2[i]) {
+                if (charQueue.poll() != s2.charAt(i)) {
                     return false;
                 }
-            } else if (peekedChar == s2[i]) {
+            } else if (peekedChar == s2.charAt(i)) {
                 firstMatch = true;
                 matchedI = i;
                 charQueue.poll();
@@ -45,7 +41,7 @@ public class Q1_09_A {
         }
 
         for (int i = 0; i < matchedI; i++) {
-            if (charQueue.poll() != s2[i]) {
+            if (charQueue.poll() != s2.charAt(i)) {
                 return false;
             }
         }
