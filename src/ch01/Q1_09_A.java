@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * Created by jun097kim on 2017-10-10.
  */
-public class Q1_09 {
+public class Q1_09_A {
     public static void main(String[] args) {
         String s1 = "waterbottle";
         String s2 = "erbottlewat";

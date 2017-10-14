@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * Created by jun097kim on 2017-10-09.
  */
-public class Q1_05 {
+public class Q1_05_A {
     public static void main(String[] args) {
         String[] s1 = {"pale", "pales", "pale", "pale"};
         String[] s2 = {"ple", "pale", "bale", "bake"};
@@ -24,9 +24,13 @@ public class Q1_05 {
         int lengthDiff = s2.length - s1.length;
         int lengthDiffAbs = Math.abs(lengthDiff);
 
+        // 길이 차이가 1보다 큰 경우, 같게 만들 수 없음
         if (lengthDiffAbs > 1) {
             return false;
-        } else if (lengthDiffAbs == 1) {
+        }
+
+        // 길이 차이가 1인 경우, 문자 삽입 또는 삭제로 같게 만들 수 있는지 확인
+        else if (lengthDiffAbs == 1) {
             if (lengthDiff < 0) {
                 char[] tmp = s1;
                 s1 = s2;
@@ -34,7 +38,6 @@ public class Q1_05 {
             }
 
             Queue<Character> charQueue = new LinkedList<>();
-
             for (char c : s1) {
                 charQueue.offer(c);
             }
@@ -52,7 +55,10 @@ public class Q1_05 {
             }
 
             return charQueue.isEmpty();
-        } else {
+        }
+
+        // 길이가 같은 경우, 문자 교체로 같게 만들 수 있는지 확인
+        else {
             int equalCnt = 0;
 
             for (int i = 0; i < s1.length; i++) {
