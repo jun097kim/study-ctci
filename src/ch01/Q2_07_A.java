@@ -14,8 +14,8 @@ public class Q2_07_A {
 
         LinkedList<Integer> intersection = new LinkedList<>(Arrays.asList(1, 7, 3, 5, 4));
 
-        l1.addAll(intersection);
-        l2.addAll(intersection);
+        l1.addAll(intersection);    //           1 -> 7 -> 3 -> 5 -> 4
+        l2.addAll(intersection);    // 9 -> 2 -> 1 -> 7 -> 3 -> 5 -> 4
 
         System.out.println(findIntersection(l1, l2));
     }
