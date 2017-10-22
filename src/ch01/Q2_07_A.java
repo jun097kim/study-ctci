@@ -24,10 +24,13 @@ public class Q2_07_A {
         Iterator<Integer> itL1 = l1.iterator();
         Iterator<Integer> itL2 = l2.iterator();
 
-        if (l1.size() < l2.size()) {
-            nextDiff(itL2, l2.size() - l1.size());
-        } else if (l1.size() > l2.size()) {
-            nextDiff(itL1, l1.size() - l2.size());
+        int lengthDiff = l1.size() - l2.size();
+        int lengthDiffAbs = Math.abs(lengthDiff);
+
+        if (lengthDiff > 0) {
+            nextDiff(itL1, lengthDiffAbs);
+        } else if (lengthDiff < 0) {
+            nextDiff(itL2, lengthDiffAbs);
         }
 
         while (itL1.hasNext()) {
