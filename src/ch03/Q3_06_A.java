@@ -59,7 +59,7 @@ class AnimalShelter {
     }
 }
 
-class Animal {
+abstract class Animal {
     private static int i;
     int animalNo;
 
