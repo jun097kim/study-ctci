@@ -19,7 +19,7 @@ public class Q6_09_A {
 
         for (int i = 2; i <= Math.sqrt(max); i++) {
             if (flags[i]) {
-                for (int j = i + 2; j <= max; j += i) {
+                for (int j = i * 2; j <= max; j += i) {
                     flags[j] = false;
                 }
             }
