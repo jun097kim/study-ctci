@@ -4,33 +4,31 @@ import java.util.Arrays;
 
 public class Q6_09_A {
     public static void main(String[] args) {
-        boolean[] flags = sieveOfEratosthenes(100);
+        Boolean[] locker = new Boolean[101];
 
-        for (int i = 0; i < flags.length; i++) {
-            if (flags[i])
+        toggleLocker(locker);
+
+        for (int i = 1; i <= 100; i++) {
+            if (locker[i]) {
                 System.out.print(i + " ");
-        }
-    }
-
-    static boolean[] sieveOfEratosthenes(int max) {
-        boolean[] flags = new boolean[max + 1];
-
-        init(flags);
-
-        for (int i = 2; i <= Math.sqrt(max); i++) {
-            if (flags[i]) {
-                for (int j = i * 2; j <= max; j += i) {
-                    flags[j] = false;
-                }
             }
         }
-
-        return flags;
     }
 
-    static void init(boolean[] flags) {
-        Arrays.fill(flags, true);
-        flags[0] = false;
-        flags[1] = false;
+    private static void toggleLocker(Boolean[] locker) {
+        Arrays.fill(locker, true);
+        toggleLocker(locker, 2);
+    }
+
+    private static void toggleLocker(Boolean[] locker, int multiplicand) {
+        if (multiplicand > locker.length) {
+            return;
+        }
+
+        for (int i = multiplicand; i < locker.length; i += multiplicand) {
+            locker[i] = !locker[i];
+        }
+
+        toggleLocker(locker, multiplicand + 1);
     }
 }
